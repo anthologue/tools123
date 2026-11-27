@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotics Tools</title>
+  <script>
+    // Apply the saved theme before the page is drawn (light by default).
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="index.html">Robotics Tools</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">Dark theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Robotics Tools</h1>
+    <p class="intro">Small interactive tools for robotics students. Pick a tool to try it out.</p>
+
+    <ul class="tool-grid">
+      <li>
+        <a class="card" href="tools/tool-1/index.html">
+          <span class="card-title">Tool 1 — coming soon</span>
+          <span class="card-desc">Placeholder: the first real tool will go here.</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>

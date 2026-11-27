@@ -1,0 +1,157 @@
+/* Shared styles for every page.
+   Colours are defined once as CSS variables (named colour settings),
+   with one set for the light theme and one for the dark theme.
+   Simple and neutral on purpose: the visual design comes later. */
+
+:root,
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f4f4f4;
+  --text: #1a1a1a;
+  --muted: #4d4d4d;
+  --border: #8a8a8a;
+  --focus: #0050b3;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1f1f1f;
+  --text: #ededed;
+  --muted: #b8b8b8;
+  --border: #7a7a7a;
+  --focus: #7fb2ff;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Centred content column with a 16px side margin on small screens. */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ---- Header (same on every page) ---- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.site-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-name:hover {
+  text-decoration: underline;
+}
+
+.theme-toggle {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* ---- Main content ---- */
+
+main {
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.intro {
+  color: var(--muted);
+  margin: 0 0 24px;
+  max-width: 60ch;
+}
+
+/* ---- Tool cards on the homepage ---- */
+
+.tool-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: block;
+  height: 100%;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: var(--text);
+}
+
+.card-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  display: block;
+  color: var(--muted);
+}
+
+/* ---- Tool pages ---- */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+}
