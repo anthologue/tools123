@@ -11,6 +11,9 @@
   --muted: #4d4d4d;
   --border: #8a8a8a;
   --focus: #0050b3;
+  --grid: #dddddd;
+  --link1: #1f5fbf;
+  --link2: #b8381e;
   color-scheme: light;
 }
 
@@ -21,6 +24,9 @@
   --muted: #b8b8b8;
   --border: #7a7a7a;
   --focus: #7fb2ff;
+  --grid: #333333;
+  --link1: #6fa8ff;
+  --link2: #ff8a6b;
   color-scheme: dark;
 }
 

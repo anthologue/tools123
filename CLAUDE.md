@@ -15,7 +15,10 @@
 ├── css/style.css          # Shared styles and light/dark colour variables
 ├── js/theme.js            # Shared light/dark theme toggle
 └── tools/
-    └── tool-1/index.html  # Placeholder tool page ("coming soon")
+    └── robot-arm/         # 2-link robot arm tool
+        ├── index.html     # Tool page: settings, drawing, working-out
+        ├── arm.css        # Layout and drawing styles for this tool
+        └── arm.js         # Maths, SVG drawing, step-by-step working-out
 ```
 
 As files are added, keep this section up to date.
@@ -46,10 +49,10 @@ A web portal where robotics students try out small interactive web tools.
 ### Phases
 
 **Phase 1: Portal + first tool**
-- [x] Homepage with one tool card, shared header, light/dark theme toggle. Done, with a placeholder "Tool 1 — coming soon" card and page that prove the open/back navigation works.
-- [ ] 2-link robot arm tool:
-  - In: two arm lengths and two joint angles (sliders + number boxes).
-  - Out: tip position (x, y), a live drawing of the arm, and step-by-step working-out.
+- [x] Homepage with one tool card, shared header, light/dark theme toggle.
+- [x] 2-link robot arm tool (`/tools/robot-arm/`):
+  - In: two arm lengths in cm and two joint angles (sliders + number boxes). θ1 is measured from the x-axis, θ2 from link 1.
+  - Out: tip position (x, y), a live drawing of the arm, and step-by-step working-out written for high-school students.
 
 **Phase 2: More tools**
 - Add further robotics tools one at a time, each following the folder pattern above. Which tools is still to be decided.

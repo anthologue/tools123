@@ -1,0 +1,143 @@
+/* Layout and drawing styles for the 2-link robot arm tool.
+   Colours come from the shared theme variables in css/style.css. */
+
+.arm-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "figure"
+    "controls"
+    "steps";
+  gap: 24px;
+}
+
+/* Wide screens: settings on the left, drawing on the right, working-out below. */
+@media (min-width: 800px) {
+  .arm-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "controls figure"
+      "steps steps";
+    align-items: start;
+  }
+}
+
+.arm-figure   { grid-area: figure; margin: 0; }
+.arm-controls { grid-area: controls; }
+.arm-steps    { grid-area: steps; }
+
+h2 {
+  font-size: 1.2rem;
+  margin: 0 0 12px;
+}
+
+/* ---- Controls ---- */
+
+.control {
+  margin-bottom: 18px;
+}
+
+.control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-row input[type="range"] {
+  flex: 1;
+  min-width: 0;
+}
+
+.control-row input[type="number"] {
+  width: 5.5em;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+.unit {
+  min-width: 1.5em;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 4px 0 0;
+}
+
+/* ---- Drawing ---- */
+
+.arm-svg {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.arm-svg text {
+  fill: var(--text);
+  font-size: 12px;
+  font-family: inherit;
+  /* A thin outline in the background colour keeps labels readable over lines. */
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.arm-svg .tick       { fill: var(--muted); font-size: 10px; }
+.arm-svg .grid       { stroke: var(--grid); stroke-width: 1; }
+.arm-svg .axis       { stroke: var(--muted); stroke-width: 1.5; }
+.arm-svg .reach      { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 6 5; fill: none; }
+.arm-svg .link1      { stroke: var(--link1); stroke-width: 6; stroke-linecap: round; }
+.arm-svg .link2      { stroke: var(--link2); stroke-width: 6; stroke-linecap: round; }
+.arm-svg .extension  { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.arm-svg .arc1       { stroke: var(--link1); stroke-width: 2; fill: none; }
+.arm-svg .arc2       { stroke: var(--link2); stroke-width: 2; fill: none; }
+.arm-svg .joint      { fill: var(--bg); stroke: var(--text); stroke-width: 2; }
+.arm-svg .tip        { fill: var(--text); }
+
+.arm-result {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+/* ---- Working-out ---- */
+
+.steps {
+  margin: 12px 0 0;
+  padding-left: 1.5em;
+}
+
+.steps li {
+  margin-bottom: 16px;
+}
+
+.steps p {
+  margin: 0 0 6px;
+}
+
+.math {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 10px;
+  overflow-wrap: anywhere;
+}
