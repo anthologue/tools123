@@ -28,3 +28,28 @@ As files are added, keep this section up to date.
 - Explain technical terms in plain language.
 - Ask before making big changes.
 - When something is unclear, ask rather than guess.
+
+## Feature Plan
+
+A web portal where robotics students try out small interactive web tools.
+
+### Portal structure
+
+- **Homepage** (`/index.html`): site name, theme toggle, a short intro, and a grid of tool cards (title + one-line description).
+- **Opening a tool:** clicking a card opens that tool's own page.
+- **Getting back:** every tool page has the same header as the homepage. The site name links home, and a "← All tools" link sits above the tool.
+- **Adding a tool later:** create a folder `/tools/<tool-name>/` with its own `index.html` (plus any JS/CSS it needs), then add one card for it on the homepage. Shared styles and the theme toggle live in `/css/` and `/js/` and are reused by every page.
+
+### Phases
+
+**Phase 1: Portal + first tool**
+- Homepage with one tool card, shared header, light/dark theme toggle.
+- 2-link robot arm tool:
+  - In: two arm lengths and two joint angles (sliders + number boxes).
+  - Out: tip position (x, y), a live drawing of the arm, and step-by-step working-out.
+
+**Phase 2: More tools**
+- Add further robotics tools one at a time, each following the folder pattern above. Which tools is still to be decided.
+
+**Phase 3: Grow the portal**
+- Once there are enough tools, consider grouping them by topic or adding search. To be decided.
